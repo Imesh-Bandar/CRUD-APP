@@ -1,0 +1,20 @@
+.img{
+    background-image: url("https://images.ctfassets.net/co0pvta7hzrh/1HOajBVHsh7xunfUnjpDNE/c94d271e8f90a6bf6016fc1d275d7a74/e_commerce_registration_form_template_thumb.png");
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-shadow: 5px sandybrown;
+    border-radius: 56px;
+    border: 5px solid rgb(92, 94, 95);
+}
+.fom{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-image: url("https://newmibridges.michigan.gov/resource/1670676154000/ISD_Icons/registration/background-image-desktop.svg");
+    opacity: 0.8;
+    border: 2px solid white;
+    color: aliceblue;
+
+     
+}
+button:hover{
+    background-color:#e3eef7 !important;
+    color: cornflowerblue!important;
+}
