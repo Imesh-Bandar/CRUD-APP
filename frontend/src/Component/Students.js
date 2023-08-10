@@ -3,16 +3,17 @@ import axios from 'axios';
 //Imprt Route
 import { Outlet, Link } from "react-router-dom";
 
-function Student() {
-  const [student, setStudent] = useState([]);
+function Students() {
+  const [student, setStudent] = useState(['']);
   //check errors
   const [error, setError] = useState(null);
 
   useEffect(() => {
     axios.get("http://localhost:8081/")
       .then(res => {
+        console.log(res.data)
         setStudent(res.data);
-        setError(null); // Clear any previous errors
+   
       })
       .catch(err => {
         console.log(err);
@@ -23,8 +24,8 @@ function Student() {
   return (
     <div className="d-flex vh-100 bg-primary justify-content-center align-items-center">
       <div className="w-75 h-75 mt-5 bg-white rounded">
-        <Link to ="/NewStudent">
-        <button  className="btn btn-success m-2"  >ADD STUDENT</button>
+        <Link to="/NewStudent">
+          <button className="btn btn-success m-2"  >ADD STUDENT</button>
         </Link>
 
         {/*Check Student Arry Data is Empty Or Not*/}
@@ -35,7 +36,7 @@ function Student() {
         ) : (
 
 
-     
+
           <table className="table">
             <thead>
               <tr>
@@ -50,9 +51,15 @@ function Student() {
                 <tr key={i}>
                   <td>{data.Name}</td>
                   <td>{data.Email}</td>
-                  <td><button className="btn btn-info">UPDATE</button></td>
+                  <td>
+                    {/*Route the EditeStudent Page*/}
+                    <Link to={`/Edit/${data.ID}`}>
+                      <button className="btn btn-info">UPDATE</button>
+                    </Link>
+                  </td>
+
                   <td><button className="btn btn-danger">DELETE</button></td>
-                  
+
                 </tr>
               ))}
             </tbody>
@@ -63,4 +70,4 @@ function Student() {
   );
 }
 
-export default Student;
+export default Students;
