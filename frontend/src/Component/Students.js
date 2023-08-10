@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
+import'../Component/student.css'
 //Imprt Route
 import { Outlet, Link } from "react-router-dom";
 
@@ -13,7 +14,7 @@ function Students() {
       .then(res => {
         console.log(res.data)
         setStudent(res.data);
-   
+
       })
       .catch(err => {
         console.log(err);
@@ -26,21 +27,31 @@ function Students() {
 
 
 
-  const HandleDelete=async(id)=>{
+  const HandleDelete = async (id) => {
     try {
-      await axios.delete("http://localhost:8081/DeleteStudent/"+id);
+      await axios.delete("http://localhost:8081/DeleteStudent/" + id);
       //Refresh the Window
       window.location.reload()
-      
+
     } catch (error) {
-       console.log(error);
-      
+      console.log(error);
+
     }
   }
   return (
-    <div className="d-flex vh-100 bg-primary justify-content-center align-items-center">
-      <div className="w-75 h-75 mt-5 bg-white rounded">
+    <div className="d-flex vh-100 bg-primary justify-content-center align-items-center ">
+
+
+
+      <div className="w-75 h-75 mt-5 bg-white rounded boder">
+        <header className="header">
+        <nav className="navbar navbar-dark bg-dark"><h3>Management System</h3></nav>
+
+         
+        </header>
+
         <Link to="/NewStudent">
+
           <button className="btn btn-success m-2"  >ADD STUDENT</button>
         </Link>
 
@@ -74,7 +85,7 @@ function Students() {
                     </Link>
                   </td>
 
-                  <td><button className="btn btn-danger" onClick={()=>HandleDelete(data.ID)}>DELETE</button></td>
+                  <td><button className="btn btn-danger" onClick={() => HandleDelete(data.ID)}>DELETE</button></td>
 
                 </tr>
               ))}

@@ -1,0 +1,11 @@
+.header{
+    color: aliceblue;
+    background-image: url("https://img.freepik.com/free-photo/psychedelic-paper-shapes-with-copy-space_23-2149378246.jpg?w=1060&t=st=1691658931~exp=1691659531~hmac=2379699f3b8bb996be780d108d65a5e6148bebbec3e2f5c52efd9bfe16bf9cd0");
+    background-image: cover;
+}
+h3{
+     margin: 150px auto;
+}
+.boder{
+    border-radius: 52px;
+}
