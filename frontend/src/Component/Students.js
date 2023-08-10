@@ -21,6 +21,22 @@ function Students() {
       });
   }, []);
 
+
+
+
+
+
+  const HandleDelete=async(id)=>{
+    try {
+      await axios.delete("http://localhost:8081/DeleteStudent/"+id);
+      //Refresh the Window
+      window.location.reload()
+      
+    } catch (error) {
+       console.log(error);
+      
+    }
+  }
   return (
     <div className="d-flex vh-100 bg-primary justify-content-center align-items-center">
       <div className="w-75 h-75 mt-5 bg-white rounded">
@@ -58,7 +74,7 @@ function Students() {
                     </Link>
                   </td>
 
-                  <td><button className="btn btn-danger">DELETE</button></td>
+                  <td><button className="btn btn-danger" onClick={()=>HandleDelete(data.ID)}>DELETE</button></td>
 
                 </tr>
               ))}
