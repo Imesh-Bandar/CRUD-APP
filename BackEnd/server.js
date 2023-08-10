@@ -99,7 +99,17 @@ app.put("/Update/:id", (req, res) => {
 
 
 
+app.delete("/DeleteStudent/:id",(req,res)=>{
+  const sql=`delete from student where ID =?`;
+  const id=req.params.id;
 
+ 
+  //database query
+  connection.query(sql,[id],(err,result)=>{
+    if(err)return res.json("Error");
+    return res.status(200).json(result)
+  });
+})
 
 
 
